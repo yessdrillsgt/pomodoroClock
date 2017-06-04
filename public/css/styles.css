@@ -1,0 +1,328 @@
+@font-face {
+    font-family: digital;
+    src: url(../font/digital-7.ttf);
+}
+
+@font-face {
+		font-family: lionKing;
+		src: url(../font/lion_king.ttf);
+}
+
+body {
+	background-color: rgb(70, 70, 70);
+}
+
+#pomClockHeader {
+	font-family: lionKing;
+	text-align: center;
+	color: rgb(235,235,235);
+}
+
+.lengthHeader {
+	text-align: center;
+	color: rgb(235,235,235);
+}
+
+#breakDuration, #sessionDuration {
+	text-align: center;
+	color: rgb(235,235,235);
+}
+
+#timer-div {
+	background-color: rgb(70, 70, 70);
+	text-align: center;
+}
+
+#timerType {
+	color: rgb(235,235,235);
+}
+
+#timer {
+	font-family: digital;
+	color: rgb(0, 170, 0);
+	background-color: black;
+	border-style: solid;
+	border-color: rgb(235,235,235);
+}
+
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Extra Small Mobile Devices */ 
+@media only screen and (min-width : 320px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 3em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 1em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 3.5em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 1em;
+	}
+
+	#timer {
+		font-size: 5em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.1em;
+	}
+}
+
+/* Large Mobile Devices */
+@media only screen and (min-width : 425px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 3em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 1em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 3em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 1em;
+	}
+
+	#timer {
+		font-size: 5em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}
+/* Extra-Large Mobile Devices */
+@media only screen and (min-width : 480px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 3em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 1em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 3em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 1em;
+	}
+
+	#timer {
+		font-size: 5em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 5em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 2.5em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 5em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 3em;
+	}
+
+	#timer {
+		font-size: 10em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}
+/* Medium Devices, Desktops - No minimum height */
+@media only screen and (min-width : 972px){
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 5em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 2.5em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 5em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 3em;
+	}
+
+	#timer {
+		font-size: 10em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 5em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 2.5em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 5em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 3em;
+	}
+
+	#timer {
+		font-size: 10em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}
+
+/* Extra-Large Devices, Wide Screens */
+@media only screen and (min-width : 1300px) {
+	#pomClockHeader {
+		margin-top: 0.5em;
+		font-size: 8em;
+	}
+
+	.lengthHeader {
+		margin-top: 1em;
+		font-size: 2.5em;
+	}
+
+	#breakDuration, #sessionDuration {
+		font-size: 7em;
+	}
+
+	#timer-div {
+		margin-top: 2em;
+	}
+
+	#timerType {
+		font-size: 3em;
+	}
+
+	#timer {
+		font-size: 13em;
+		border-radius: 0.5em;
+		border-style: solid;
+		text-shadow: 0 0 5px rgb(235,235,235);
+	}
+
+	#actions-container {
+		margin-top: 1em;
+	}
+	
+	#actions-container > .btn {
+		margin: 0.5em;
+	}
+}

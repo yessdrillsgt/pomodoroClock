@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search Wikipedia</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <!-- Bootstrap core CSS -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+        <!-- Custom styles for this template -->
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+	
+    <body>
+        <div class="container">
+			
+			<h1 id="pomClockHeader">Pomodoro Clock<span class="glyphicons glyphicons-question-sign"></span></h1>
+			
+			<div class="row center-block">
+				<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+					<div class="lengthHeader">BREAK LENGTH</div>
+					<div class="col-xs-4">
+						<img id="subtractBreak" class="img-responsive" src="img/subtraction.png" alt="subtraction icon" />
+					</div>
+					<div class="col-xs-4">
+						<h6 id="breakDuration" >5</h6>
+					</div>
+					<div class="col-xs-4">
+						<img id="addBreak" class="img-responsive" src="img/addition.png" alt="addition icon" />
+					</div>	
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-5">
+					<div class="lengthHeader">SESSION LENGTH</div>
+					<div class="col-xs-4">
+						<img id="subtractSession" class="img-responsive" src="img/subtraction.png" alt="subtraction icon" />
+					</div>
+					<div class="col-xs-4">
+						<h6 id="sessionDuration">25</h6>
+					</div>
+					<div class="col-xs-4">
+						<img id="addSession" class="img-responsive" src="img/addition.png" alt="addition icon" />
+					</div>	
+				</div>
+			</div>
+			<div class="row">
+				<div id="timer-div" class="col-md-10 col-md-offset-1">
+					<div id="timerType" >SESSION</div>
+					<div id="timer">25:00</div>
+					<div id="actions-container">
+						<input id="btn_start" type="button" class="btn btn-success " value="START" />
+						<input id="btn_stop" type="button" class="btn btn-danger " value="STOP" />
+						<input id="btn_reset" type="button" class="btn btn-warning " value="RESET" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+        <!-- JQuery Plugin -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	
+		<!-- Bootstrap JS Plugin -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+        <!-- Custom JS -->
+        <script src="js/custom.js"></script>
+    </body>
+</html>
