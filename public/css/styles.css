@@ -12,6 +12,10 @@ body {
 	background-color: rgb(70, 70, 70);
 }
 
+.add-subtract-button{
+	cursor: pointer;
+}
+
 #pomClockHeader {
 	font-family: lionKing;
 	text-align: center;
