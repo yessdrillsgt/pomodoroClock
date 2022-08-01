@@ -1,13 +1,13 @@
 $(document).ready(function(){
 	// Declare global variables
-	var breakLength = 5;
-	var sessionLength = 25;
 	var session = true;
 	var countDown = false;
-	var timer = setInterval(DecreaseTime ,1000);
+	var timer = setInterval(MainLoop ,1000);
 	const SESSION = 'SESSION';
 	const BREAK = 'BREAK';
 	var interval;
+	var minutesRemaining = 25; // default to 25
+	var secondsRemaining = 0;
 	
 	
 	$('#btn_start').on('click', function(){
@@ -19,12 +19,13 @@ $(document).ready(function(){
 	});
 	
 	$('#btn_reset').on('click', function(){
-		var updatedTime = Get_updatedTime($('#sessionDuration').text(), 0);
-		$('#timer').text(updatedTime);
+		secondsRemaining = 0;
+		minutesRemaining = session ? $('#sessionDuration').text() : $('#breakDuration').text();
+		Set_updatedTimeElements();
 		session = true;
 		countDown = false;
 	});
-	
+
 	$('#subtractBreak').on('click', function(){
 		DecrementBreak();
 	});
@@ -71,74 +72,104 @@ $(document).ready(function(){
 		clearInterval(interval);
 	});
 	
-	function DecreaseTime(){
-		if (countDown){
-			var currentTime = $('#timer').text().split(':');
-			var min = parseInt(currentTime[0]);
-			var sec = parseInt(currentTime[1]);
-			var updatedTime;
-			
-			console.log('min = ' + min + ' sec = ' + sec);
-			
-			if (sec === 0){
-				if (min > 0) {
-					min -= 1;
-					sec = 59;
-
-				} else {
+	function MainLoop(){
+		if (countDown)
+		{
+			if (secondsRemaining === 0)
+			{
+				if (minutesRemaining > 0) 
+				{
+					minutesRemaining--;
+					secondsRemaining = 59;
+				} 
+				else 
+				{
 					// make a sound
 					session = !session;
 					
-					if (session){
-						min = $('#sessionDuration').text();
-						$('#timerType').text(SESSION);
-					} else {
-						min = $('#breakDuration').text();
-						$('#timerType').text(BREAK);
-					}
+					minutesRemaining = session ? $('#sessionDuration').text() : $('#breakDuration').text();
+					$('#timerType').text(session ? SESSION : BREAK);
+
+					countDown = false;
 				}
-			} else {
-					sec -= 1;
+			} 
+			else 
+			{
+				secondsRemaining--;
 			}
 			
-			updatedTime = Get_updatedTime(min, sec);
-			console.log(updatedTime);
-			$('#timer').text(updatedTime);
+			Set_updatedTimeElements();
 		}
-	} // End of DecreaseTime
+	}
 	
-	function Get_updatedTime(min, sec){
+	function Get_updatedTime(){
+		let min = minutesRemaining;
+		let sec = secondsRemaining;
 		if (min.toString().length == 1){ min = '0' + min.toString(); }
-		if (sec.toString().length == 1) { sec = '0' + sec.toString();}
+		if (sec.toString().length == 1) { sec = '0' + secondsRemaining.toString();}
 		
 		return min.toString() + ':' + sec.toString();
 	}
 	
 	function IncrementBreak(){
-		var min = parseInt($('#breakDuration').text()); 
+		let min = parseInt($('#breakDuration').text()); 
 		if (min < 59) { min += 1; } // don't allow user to break more than 59 minutes
 		
 		$('#breakDuration').text(min.toString());
+
+		if (!session && !countDown && secondsRemaining === 0)
+		{
+			minutesRemaining = min;
+			Set_updatedTimeElements();
+		}
 	}
 	
 	function DecrementBreak(){
-		var min = parseInt($('#breakDuration').text()); 
+		let min = parseInt($('#breakDuration').text()); 
 		if (min > 1) { min -= 1; } // don't allow user to break less than 1 minute
 		
 		$('#breakDuration').text(min.toString());
+
+		if (!session && !countDown && secondsRemaining === 0)
+		{
+			minutesRemaining = min;
+			Set_updatedTimeElements();
+		}
 	}
 	
 	function IncrementSession(){
-		var min = parseInt($('#sessionDuration').text()); 
+		let min = parseInt($('#sessionDuration').text()); 
 		if (min < 120) { min += 1; } // don't allow user to session more than 120 minutes (2 hours)
 		
 		$('#sessionDuration').text(min.toString());
+
+		if (session && !countDown && secondsRemaining === 0)
+		{
+			minutesRemaining = min;
+			Set_updatedTimeElements();
+		}
 	}
 	
 	function DecrementSession(){
-		var min = parseInt($('#sessionDuration').text()); 
+		let min = parseInt($('#sessionDuration').text()); 
 		if (min > 1) { min -= 1; } // don't allow user to session less than 1 minute
 		
 		$('#sessionDuration').text(min.toString());
+
+		if (session && !countDown && secondsRemaining === 0)
+		{
+			minutesRemaining = min;
+			Set_updatedTimeElements();
+		}
+	}
+
+	function Set_updatedTimeElements(){
+		var updatedTime = Get_updatedTime();
+		var titleText = (minutesRemaining == 0 && secondsRemaining == 0) ?
+			(session ? "TIME FOR BREAK" : "BREAK IS OVER") :
+			`${updatedTime} remaining till:  ${session ? BREAK : SESSION}`;
+
+		$('#timer').text(updatedTime);
+		$('title').text(titleText);
 	}
 });
